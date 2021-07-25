@@ -1,0 +1,42 @@
+[
+    {
+        "domanda":"Quale associazione internazionale ha come simbolo un panda e si batte per la tutela degli animali e degli ambienti?",
+        "risposta":"wwf"
+    },
+    {
+        "domanda":"Nel gioco di Super Mario Bros come si chiama il personaggio cattivo?",
+        "risposta":"bowser"
+    },
+    {
+        "domanda":"Qual è la capitale del Marocco?",
+        "risposta":"rabat"
+    },
+    {
+        "domanda":"Quali tra farina,uova,acqua non è un ingrediente necessario per fare il pane?",
+        "risposta":"ragni"
+    },
+    {
+        "domanda":"In quale regione si trova il vulcano Vesuvio",
+        "risposta":"campania"
+    },
+    {
+        "domanda":"Il cannolo è una specialità di quale regione italiana?",
+        "risposta":"sicilia"
+    },
+    {
+        "domanda":"In quale continente si trova la Patagonia?",
+        "risposta":"america"
+    },
+    {
+        "domanda":"Quale pianeta del nostro sistema solare è dotato di anelli?",
+        "risposta":"saturno"
+    },
+    {
+        "domanda":"Qual è la più alta montagna del mondo?",
+        "risposta":"everest"
+    },
+    {
+        "domanda":"In quale anno Cristoforo Colombo scoprì l'America?",
+        "risposta":"1492"
+    }
+]
