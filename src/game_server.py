@@ -1,8 +1,7 @@
-#!/usr/bin/env python3
-from socket import AF_INET, socket, SOCK_STREAM
+
+import socket
 from threading import Thread
-from game_client import question as q
-from game_client import close as c
+import question as q
 import player as p
 import json
 import random as r
@@ -11,9 +10,7 @@ def accept_clients():
      while True:
         client, client_address = SERVER.accept()
         print("New player connected.")
-        print("%s:%s si è collegato." % client_address)
         client.send(bytes("Hi! Write your name and click Enter", "utf8"))
-        indirizzi[client] = client_address
         Thread(target=client_manager, args=(client,)).start()
 
 def client_manager(client):
@@ -32,7 +29,7 @@ def client_manager(client):
         return
     
     clients[client] = name
-    player = p.Player(name, roles[r.randrange(6)], 0)
+    player = p.Player(name, roles[r.randrange(4)], 0)
     players.append(player)
     
     client.send(bytes('{welcome}', 'utf8'))
@@ -114,7 +111,7 @@ ready = 0
 
 players = []
 
-roles = ["cuoco","artista","geografo",
+roles = ["cuoco","geografo",
          "scienziato","storico"]
 
 #variabili globali legate alla domanda
@@ -128,10 +125,9 @@ for value in data:
 HOST = ''
 PORT = 8080
 BUFSIZ = 1024
-ADDR = (HOST, PORT)
 
-SERVER = socket(AF_INET, SOCK_STREAM)
-SERVER.bind(ADDR)
+SERVER = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+SERVER.bind((HOST, PORT))
 
 if __name__ == "__main__":
     SERVER.listen(5)

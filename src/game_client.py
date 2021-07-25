@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-from socket import AF_INET, socket, SOCK_STREAM
+
+import socket 
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import PhotoImage
@@ -28,7 +28,6 @@ def receive_message():
                 text['state'] = 'disabled'
             elif my_msg == "{question}":   
                 chooseButton()
-                countdown_thread.start()
             elif my_msg == "Right answer":
                 text['state'] = 'normal'
                 text.insert(tk.END, "Correct")
@@ -119,23 +118,23 @@ def closeConnection(event = None):
 
 def chooseButton():
     button_frame = tk.Frame(master = gameFrame)
-    letter_a = PhotoImage(file='../resources/a_letter.gif')
-    letter_b = PhotoImage(file = '../resources/b_letter.gif')
-    letter_c = PhotoImage(file = '../resources/c_letter.gif')
-    btn_a = tk.Button(button_frame, text="A", image=letter_a)
-    btn_b = tk.Button(button_frame, text="B", image=letter_b)
-    btn_c = tk.Button(button_frame, text="C", image=letter_c)
-    r = random.randint(1,3)
+    letter_a = PhotoImage(file=r'../resources/a_letter.gif')
+    letter_b = PhotoImage(file = r'../resources/b_letter.gif')
+    letter_c = PhotoImage(file = r'../resources/c_letter.gif')
+    btn_a = tk.Button(master = button_frame, text="A")
+    btn_b = tk.Button(master = button_frame, text="B")
+    btn_c = tk.Button(master = button_frame, text="C")
+    r = random.randint(1, 3)
     if r==1:
-        btn_a.config(command = quit)
+        btn_a.config(command = closeConnection)
         btn_b.config(command = lambda: question(button_frame))
         btn_c.config(command = lambda: question(button_frame))
     elif r==2:  
-        btn_b.config(command = quit)
+        btn_b.config(command = closeConnection)
         btn_a.config(command = lambda: question(button_frame))
         btn_c.config(command = lambda: question(button_frame))
     else:
-        btn_c.config(command = quit)
+        btn_c.config(command = closeConnection)
         btn_a.config(command = lambda: question(button_frame))
         btn_b.config(command = lambda: question(button_frame))
     inner_label.pack()
@@ -162,7 +161,7 @@ window_main.title("ChatGame")
 text = tk.Text(height = 15, width = 50)
 text['state'] = 'disabled'
 text.pack()
-label = tk.Label(text = "Scrivi qui i tuoi messaggi:")
+label = tk.Label(text = "Write here:")
 label.pack()
 msg = tk.StringVar()
 entryField = tk.Entry(width = 25, textvariable = msg)
@@ -184,10 +183,10 @@ questionText['state'] = 'disabled'
 answer = tk.StringVar()
 answerField = tk.Entry(width = 25, textvariable = answer, master = gameFrame)
 answerField.pack()
-btn_answer = tk.Button(text = 'Rispondi', command = sendAnswer, master = gameFrame)
+btn_answer = tk.Button(text = 'Answer', command = sendAnswer, master = gameFrame)
 btn_answer['state'] = 'disabled'
 btn_answer.pack()
-inner_label = tk.Label(master = gameFrame, text = "Scegli uno dei tre pulsanti per rispondere ad una domanda:")
+inner_label = tk.Label(master = gameFrame, text = "Choose one the buttons:")
 inner_label.pack()
 
 # Inizializzazione countdown
@@ -199,9 +198,8 @@ HOST = '127.0.0.1'
 PORT = 8080
 
 BUFSIZ = 1024
-ADDR = (HOST, PORT)
-client_socket = socket(AF_INET, SOCK_STREAM)
-client_socket.connect(ADDR)
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client_socket.connect((HOST, PORT))
 receive_thread = Thread(target=receive_message)
 receive_thread.start()
 tk.mainloop()
