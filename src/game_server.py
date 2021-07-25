@@ -1,10 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jul 23 21:15:25 2021
-
-@author: dani-pc
-"""
-
+#!/usr/bin/env python3
 from socket import AF_INET, socket, SOCK_STREAM
 from threading import Thread
 from game_client import question as q

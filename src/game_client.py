@@ -1,10 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jul 23 17:01:45 2021
-
-@author: dani-pc
-"""
-
+#!/usr/bin/env python3
 from socket import AF_INET, socket, SOCK_STREAM
 import tkinter as tk
 from tkinter import messagebox

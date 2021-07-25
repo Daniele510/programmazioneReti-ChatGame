@@ -1,10 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jul 23 20:47:27 2021
-
-@author: dani-pc
-"""
-
+#!/usr/bin/env python3
 class Player:
     
     def __init__(self, name, role, score):
