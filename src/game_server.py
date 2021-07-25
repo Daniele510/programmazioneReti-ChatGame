@@ -2,6 +2,7 @@
 from socket import AF_INET, socket, SOCK_STREAM
 from threading import Thread
 from game_client import question as q
+from game_client import close as c
 import player as p
 import json
 import random as r
