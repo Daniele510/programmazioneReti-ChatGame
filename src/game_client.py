@@ -118,9 +118,6 @@ def closeConnection(event = None):
 
 def chooseButton():
     button_frame = tk.Frame(master = gameFrame)
-    letter_a = PhotoImage(file=r'../resources/a_letter.gif')
-    letter_b = PhotoImage(file = r'../resources/b_letter.gif')
-    letter_c = PhotoImage(file = r'../resources/c_letter.gif')
     btn_a = tk.Button(master = button_frame, text="A")
     btn_b = tk.Button(master = button_frame, text="B")
     btn_c = tk.Button(master = button_frame, text="C")
